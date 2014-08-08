@@ -1,10 +1,14 @@
 ---
-layout:      materia
-title:       Python
-description: Python
+layout:      materia-fork
+title:       Python - O básico da sintaxe
+description: Um guia rápido e básico da linguagem Python.
 ---
 
-Título: Descubra a sintaxe de Python (colocar menu esquerdo)
+
+
+Este é um pequeno guia sobre a sintaxe de Python.
+
+Recomendado para quem nunca viu Python.
 
 
 Variáveis
@@ -14,55 +18,31 @@ Uma variável não pode ser utilizada em uma expressão sem ter sido inicializad
 
 Não existe “criação automática” de variáveis
 
-### Atribuição
+Exemplo de atribuição:
 
     reais = euros * taxa
+
+As variáveis `euros` e  `taxa` devem ser inicializadas, senão o erro `name 'euros' is not defined` será exibido.
 
 
 
 Saídas
 ---
 
+Saída simples.
+
     print "Welcome to Python!"
-    print ("Welcome to Python!")
 
-<hr>
-    name = "Mike"
-    print "Hello %s" % (name)
+Saída mais elaborada.
 
-<hr>
     string_1 = "Camelot"
     string_2 = "place"
-
     print "Let's not go to %s. 'Tis a silly %s." % (string_1, string_2)
-
-<hr>
-    t = 1.15
-    print "%f" % t
-    # 1.150000
-
-<hr>
-    total = 1.099
-    print("%.2f" % total)
-    # 1.10
-
-<hr>
-    total = 1.099
-    print "O total é: " + str(total)
-    # O total é: 1.099
-
-<hr>
-    r = "vermelho"
-    g = "verde"
-    b = "azul"
-    print "as cores básicas são: ", r, g, b
-    # as cores básicas são:  vermelho verde azul
 
 
 
 Entradas
 ---
-
 
     name  = raw_input("What is your name?")
     quest = raw_input("What is your quest?")
@@ -110,21 +90,27 @@ Tipos de dados básicos
     </tr>
 </table>
 
-    type("text") # <type 'text'>
+Se, por exemplo, você digitar no console `dict` ele retornará:
 
-    type(1)      # <type 'int'>
+    <type 'dict'>
 
-    type(0.99)   # <type 'float'>
+
+A função `type()` mostra o tipo do dado, veja alguns exemplos.
+
+    type("text")        # <type 'text'>
+    type(1)             # <type 'int'>
+    type(0.99)          # <type 'float'>
+
+Também é possível elaborar as seguintes expressões.
 
     type(1) == int      # True
-
     type(0.99) == float # True
 
 
 Endentação
 ---
 
-Em Python devemos endentar corretamente o código fonte. O interpretador depende da endentação.
+Em Python devemos endentar corretamente o código fonte.
 
 Abaixo vemos um código endentado de forma errada:
 
@@ -143,15 +129,31 @@ Abaixo, vemos o mesmo código corrigido:
     print spam()
 
 
+### Blocos
+
+Todos os comandos que aceitam blocos:
+
++ if/elif/else
++ for/else
++ while/else
++ def
++ try/except  /finally/else
++ class
++ with
+
+Se o bloco tem apenas um comando, pode-se escrever tudo em uma linha:
+
+    if n < 0: print 'Valor inválido'
+
+
+
+
 Comentários
 ---
 
 Em linha.
 
     # comentário de linha
-
-<hr>
-
     """ Esse é de bloco mas está em uma linha só """
 
 Em bloco.
@@ -172,51 +174,51 @@ Aspas simples também funciona.
     '''
 
 
-Operadores matemáticos
+Números
 ---
 
-### Potência
+Python possue `+ - * /`, nem precisava falar!. 
 
-    10 ** 2
+Mas talvez você se pergunte como calcular uma potência.
 
+    10 ** 2 # print 100
 
-### Módulo
+Ou o resto da divisão com o operador módulo `%`.
 
     3 % 2 = 1
     5 % 2 = 1
 
-
-Funções Matemáticas
----
+Veja também algumas funções Matemáticas
 
     max(5, 6, 7) # 7
-
     min(5, 6, 7) # 5
+    abs(-1)      # 1
 
-    abs(-1) # 1
 
-
-Números randômicos
----
+Para trabalhar com números randômicos será preciso importar o módulo `random`.
 
     import random
     random.randint(1, 10)
+
+O código acima irá gerar números randômicos entre 1 e 10 (incluindo o 1 e o 10).
+
 
 
 Strings
 ---
 
-### Concatenando
+Concatenamos strings com o sinal `+`.
 
     "Spam " + "and" + " eggs"
+
+Quando concatenamos com um número, precisamos fazer a conversão.
+
     "The value of pi is around " + str(3.14)
 
+Escapamos (scape) caracters com o sinal `\`
 
-### Escapando caracteres (scape)
-
-    'There's a snake in my boot!'
-
-    'There\'s a snake in my boot!'
+    'There's a snake in my boot!'  # errado
+    'There\'s a snake in my boot!' # correto
 
 
 ### Métodos básicos de string
@@ -275,12 +277,15 @@ Leia mais sobre [fatimanento de sequencias](../sequencias/ "Python - Sequencias"
 
     for letter in "python":
         print letter
-    # p
-    # y
-    # t
-    # h
-    # o
-    # n
+
+    """
+    p
+    y
+    t
+    h
+    o
+    n
+    """
 
 
 Controle de fluxo (condicionais)
@@ -344,8 +349,8 @@ Funções
 Outro exemplo
 
     def add_two(a, b):
-      c = a + b
-      return c
+        c = a + b
+        return c
 
 Leia mais sobre [funções](../functions/ "Python - funções(functions)").
 
@@ -353,13 +358,17 @@ Leia mais sobre [funções](../functions/ "Python - funções(functions)").
 Imports
 ---
 
+Para importar um módulo utilizamos o `import`.
+
     import math
     print math.sqrt(25)
 
-<hr>
+O código acima importará todos os módulos de `math`, para importar apenas o necessário utilizamos `from`.
+
     from math import sqrt
 
-<hr>
+Podemos importar todas as funções de `math` dessa forma:
+
     from math import *
 
 
@@ -367,23 +376,19 @@ Datas
 ---
 
     from datetime import datetime
-
-<hr>
-
     now = datetime.now()
     print now
-
-<hr>
-
-    now = datetime.now()
     print now.year
     print now.month
     print now.day
 
-<hr>
+Para imprimir a data no formato brasileiro:
 
-    now = datetime.now()
-    print '%s/%s/%s' % (now.month, now.day, now.year)
+    print '%s/%s/%s' % (now.day, now.month, now.year)
+
+Imprimindo as horas:
+
+    print '%s:%s:%s' % (now.hour, now.minute, now.second)
 
 
 
@@ -391,31 +396,32 @@ Listas (lists)
 ---
 
     animals = ["pangolin", "cassowary", "sloth", "dog"];
+    animals[0]   # 'pangolin'
+    animals[1]   # 'cassowary'
+    animals[2]   # 'sloth'
+    animals[3]   # 'dog'
+
+Ao acessar um índice inexistente recebemos um erro.
+
+    animals[4]   # IndexError: list index out of range
+
+A função `len()` retorna o tamanho da lista.
 
     len(animals) # 4
-
-    animals[0] # 'pangolin'
-    animals[1] # 'cassowary'
-    animals[2] # 'sloth'
-    animals[3] # 'dog'
-    animals[4] # IndexError: list index out of range
 
 Leia mais sobre [listas](../listas/ "Python - listas(list)").
 
 
 
-range() 
---- 
+### range() 
 
-The `range()` function returns a list of integers, the sequence of which is defined by the arguments passed to it.
-Syntax
+A função `range()` retorna uma lista de inteiros. Seu conteúdo é definido pelos argumentos, veja:
 
-    argument variations:
-    range(terminal)
-    range(start, terminal)
-    range(start, terminal, step_size)
+- range(terminal)
+- range(start, terminal)
+- range(start, terminal, step_size)
 
-    Example
+Exemplos:
 
     range(4)
     [0, 1, 2, 3]
@@ -426,7 +432,8 @@ Syntax
     range(2, 13, 3)
     [2, 5, 8, 11]
 
-### lopping
+
+Percorrendo (lopping):
 
     for i in range(20):
         print i
@@ -446,42 +453,61 @@ Dicionários (dictionaries)
     print people['age']
     print people['skylls']
 
-    # joao
-    # 40
-    # ['python', 'ruby', 'php']
+    """
+    joao
+    40
+    ['python', 'ruby', 'php']
+    """
 
 Leia mais sobre [dicinonários](../dicionarios-dictionaries/ "Python - dicionários (dctionaries)").
-
-
 
 
 Lambdas
 ---
 
-Advanced Topics in Python 12/18
+Exemplo:
+
+    g = lambda x: x * 2
+    print g(6) 
+    # 12
+
+Para facilitar o entendimento, veja código abaixo, ele é similar.
+
+    def f(x):
+        return x * 2
+    print f(6)
+    # 12
+
+
+
 
 
 
 OOP - Programação Orientada a Objetos
 ---
 
+Uma classe consiste da palavra chave `class` seguida de seu nome e da classe herdada entre parênteses.
 
+A palavra `pass` serve para criarmos um classe vazia.
+
+Abaixo, criamos a classe vazia `Foo` que herda de `object`
 
     class Foo(object):
         pass
 
-<hr>
+Abaixo, criamos a classe `Triangle` com um método construtor `__init__`
+
     class Triangle(object):
         def __init__(self, angle1, angle2, angle3):
             self.angle1 = angle1
             self.angle2 = angle2
             self.angle3 = angle3
 
+Todo método deve aceitar como parâmetro a palavra `self`, que se refere ao próprio objeto.
 
-<hr>
+Abaixo, criamos mais métodos para nossa class `Triangle`.
+
     class Triangle(object):
-
-        number_of_sides = 3
 
         def __init__(self, angle1, angle2, angle3):
             self.angle1 = angle1
@@ -497,8 +523,10 @@ OOP - Programação Orientada a Objetos
             else:
                 return False
 
+### Instanciando
 
-<hr>
+Abaixo vemos um exemplo de utilização da classe.
+
     class Animal(object):
         def __init__(self, name):
             self.name = name
@@ -507,31 +535,15 @@ OOP - Programação Orientada a Objetos
     print zebra.name
 
 
-<hr>
-    class Animal(object):
-        """Makes cute animals."""
-        is_alive = True
-        def __init__(self, name, age):
-            self.name = name
-            self.age = age
-        # Add your method here!
-        def description(self):
-            print self.name
-            print self.age
-
-    hippo = Animal("me", 999);
-    hippo.description()
-
-
 
 ### Herança
 
+Um exemplo simples.
+
     class Shape(object):
-        """Makes shapes!"""
         def __init__(self, number_of_sides):
             self.number_of_sides = number_of_sides
 
-    # Add your Triangle class below!
     class Triangle(Shape):
         def __init__(self, side1, side2, side3):
            self.side1 = side1
@@ -539,29 +551,7 @@ OOP - Programação Orientada a Objetos
            self.side3 = side3
 
 
-Blocos
----
-
-
-Todos os comandos que aceitam blocos:
-
-+ if/elif/else
-+ for/else
-+ while/else
-+ def
-+ try/except  /finally/else
-+ class
-+ with
-
-Se o bloco tem apenas um comando, pode-se escrever tudo em uma linha:
-
-    if n < 0: print 'Valor inválido'
-
-
-
-
-<hr>
 ### Fontes
 
-- [Python:apresentando a sintaxe (Luciano Ramalho, PDF de slides)](https://github.com/pythonprobr/pypratico/raw/master/academia/py_sintaxe.pdf"link-externo")
-- []("link-externo")
+- [Codeacademy - Python Glossary](http://www.codecademy.com/glossary/python" link-externo")
+- [Python: apresentando a sintaxe (Luciano Ramalho, PDF de slides)](https://github.com/pythonprobr/pypratico/raw/master/academia/py_sintaxe.pdf" link-externo")
